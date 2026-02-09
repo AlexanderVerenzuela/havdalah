@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b123c;
+  color: white;
+}
+
+/* LAYOUT PRINCIPAL */
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+/* PANEL */
+.panel {
+  background: #121c5a;
+  padding: 24px;
+  max-width: 420px;
+  margin: auto;
+  border-radius: 16px;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.panel h3 {
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+}
+
+/* ROLES */
+.role {
+  display: grid;
+  grid-template-columns: 1fr 1fr 40px;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.role button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* BOTONES */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gen {
+  background: gold;
+  color: black;
+}
+
+.down {
+  background: #2ecc71;
+  color: black;
+}
+
+/* PREVIEW */
+#preview {
+  background: linear-gradient(135deg, #0b123c, #121c5a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* CANVAS REAL */
+#canvas {
+  width: 1080px;
+  height: 1920px;
+  transform-origin: center center;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  #preview {
+    height: 80vh;
+  }
+}
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Programa Havdalah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Konva -->
+  <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- PANEL IZQUIERDO -->
+  <div class="panel">
+    <h2>Programa Havdalah</h2>
+
+    <label>Líder de grupo</label>
+    <input id="leader" placeholder="Hna. Nombre" />
+
+    <h3>Funciones</h3>
+    <div id="roles"></div>
+
+    <button onclick="addRole()">➕ Agregar función</button>
+
+    <label>Shabat</label>
+    <input id="date"  type="date" />
+
+    <label>Hora</label>
+    <input id="time" type="time"/>
+
+    <button class="gen" onclick="generate()">📸 Generar imagen</button>
+    <button class="down" onclick="download()">⬇ Descargar</button>
+  </div>
+
+  <!-- PREVIEW DERECHO -->
+  <div id="preview">
+    <div id="canvas"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
