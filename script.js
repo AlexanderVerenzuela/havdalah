@@ -213,13 +213,32 @@ function addRole(funcion = '', nombre = '') {
 ========================= */
 function generate() {
   const leader = document.getElementById('leader').value;
-  const date = document.getElementById('date').value;
-  const time = document.getElementById('time').value;
+  const dateInput = document.getElementById('date').value; // formato YYYY-MM-DD
+  const timeInput = document.getElementById('time').value; // formato HH:MM (24h)
 
   leaderNameText.text(leader);
-  dateText.text(`Shabat ${date}`);
-  timeText.text(time);
 
+  // FORMATEAR FECHA DD-MM-AAAA
+  let formattedDate = '';
+  if (dateInput) {
+    const parts = dateInput.split('-'); // ["YYYY", "MM", "DD"]
+    formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`; // DD-MM-AAAA
+  }
+  dateText.text(`Shabat ${formattedDate}`);
+
+  // FORMATEAR HORA HH:MMam/pm
+  let formattedTime = '';
+  if (timeInput) {
+    let [hours, minutes] = timeInput.split(':');
+    hours = parseInt(hours, 10);
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // convertir 0 a 12
+    formattedTime = `${hours.toString().padStart(2, '0')}:${minutes}${ampm}`;
+  }
+  timeText.text(formattedTime);
+
+  // Procesar roles
   const rolesInputs = document.querySelectorAll('#roles .role');
   const roles = [];
 
@@ -234,6 +253,7 @@ function generate() {
 
   drawRoles(roles);
 }
+
 
 /* =========================
    DESCARGAR IMAGEN
@@ -273,3 +293,4 @@ scalePreview();
   'Banners / Banderas / SS.HH (varones)',
   'Mesa de compartir / SS.HH (damas)'
 ].forEach(r => addRole(r, ''));
+
